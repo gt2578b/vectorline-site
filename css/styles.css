@@ -251,6 +251,10 @@
       color: var(--color-white);
       padding: 8px;
     }
+    .icon-6 {
+      width: 24px;
+      height: 24px;
+    }
     @media (max-width: 767px) {
       #hamburger-e5f6 { display: block; }
     }
