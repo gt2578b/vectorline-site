@@ -81,37 +81,33 @@
             <div id="contact-form-wrapper-z1a2">
               <p class="t-label" style="margin-bottom:24px;">SEND A MESSAGE</p>
 
-              <!-- Formspree success message -->
-              <div data-fs-success style="display:none; background:#0D1117; border-left:3px solid #B08D57; padding:32px; color:#fff; margin-bottom:24px;">
+              <!-- Netlify success notice (shown after redirect or query param if desired) -->
+              <div style="display:none; background:#0D1117; border-left:3px solid #B08D57; padding:32px; color:#fff; margin-bottom:24px;" data-form-success>
                 <p style="font-size:18px;font-weight:600;margin:0 0 8px;">Message received.</p>
                 <p style="color:rgba(255,255,255,0.7);margin:0;">We'll be in touch within two business days.</p>
               </div>
 
-              <!-- Formspree error message -->
-              <div data-fs-error style="display:none; color:#B08D57; padding:16px; margin-bottom:24px; border-left:3px solid #B08D57; background:rgba(176,141,87,0.08);">
-                Something went wrong. Please email hello@vectorline.partners directly.
-              </div>
-
-              <form id="contact-form">
+              <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <p style="display:none;">
+                  <label>Do not fill this out if you're human: <input name="bot-field" /></label>
+                </p>
                 <div style="margin-bottom:20px;">
                   <label class="form-label" for="field-name-e1f2">Name</label>
-                  <input class="form-input" type="text" id="field-name-e1f2" name="name" autocomplete="name" data-fs-field />
-                  <span data-fs-error="name" class="fs-field-error"></span>
+                  <input class="form-input" type="text" id="field-name-e1f2" name="name" autocomplete="name" required />
                 </div>
                 <div style="margin-bottom:20px;">
                   <label class="form-label" for="field-org-g3h4">Organization</label>
-                  <input class="form-input" type="text" id="field-org-g3h4" name="organization" autocomplete="organization" data-fs-field />
-                  <span data-fs-error="organization" class="fs-field-error"></span>
+                  <input class="form-input" type="text" id="field-org-g3h4" name="organization" autocomplete="organization" />
                 </div>
                 <div style="margin-bottom:20px;">
                   <label class="form-label" for="field-email-i5j6">Email</label>
-                  <input class="form-input" type="email" id="field-email-i5j6" name="email" autocomplete="email" data-fs-field />
-                  <span data-fs-error="email" class="fs-field-error"></span>
+                  <input class="form-input" type="email" id="field-email-i5j6" name="email" autocomplete="email" required />
                 </div>
                 <div style="margin-bottom:20px;">
                   <label class="form-label" for="field-subject-k7l8">Subject</label>
                   <div class="select-wrapper">
-                    <select class="form-input" id="field-subject-k7l8" name="subject" data-fs-field>
+                    <select class="form-input" id="field-subject-k7l8" name="subject" required>
                       <option value="" disabled selected>Select a subject</option>
                       <option value="standards">Standards Architecture</option>
                       <option value="provenance">Provenance Strategy</option>
@@ -119,14 +115,12 @@
                       <option value="general">General Inquiry</option>
                     </select>
                   </div>
-                  <span data-fs-error="subject" class="fs-field-error"></span>
                 </div>
                 <div style="margin-bottom:24px;">
                   <label class="form-label" for="field-message-m9n0">Message</label>
-                  <textarea class="form-input" id="field-message-m9n0" name="message" style="min-height:160px;resize:vertical;" data-fs-field></textarea>
-                  <span data-fs-error="message" class="fs-field-error"></span>
+                  <textarea class="form-input" id="field-message-m9n0" name="message" style="min-height:160px;resize:vertical;" required></textarea>
                 </div>
-                <button class="btn-primary" type="submit" style="width:100%;" id="submit-btn-o1p2" data-fs-submit-btn>Send Message</button>
+                <button class="btn-primary" type="submit" style="width:100%;" id="submit-btn-o1p2">Send Message</button>
               </form>
             </div>
             <div>
@@ -194,11 +188,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#contact-form', formId: 'mvzjdwjj' });
-  </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script>
     function initIcons() {
       if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
