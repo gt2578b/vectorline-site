@@ -1,0 +1,1 @@
+Vectorline Partners is an advisory practice focused on **AI, provenance, and content authenticity**, founded by **Andrew Jenks — founding chair of C2PA**, the global standard for content provenance and authenticity.

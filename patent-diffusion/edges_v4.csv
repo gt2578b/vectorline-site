@@ -1,0 +1,105 @@
+id,source,target,type,label,weight
+E001,N001,P001,conceptual_origin,integrity assertion concept,5
+E002,N001,P002,conceptual_origin,provenance manifest concept,5
+E003,N001,P004,conceptual_origin,fragile watermark module,5
+E004,N002,P001,conceptual_origin,MIA integrity module,5
+E005,N002,P004,conceptual_origin,MIA watermark module,4
+E006,P002,P003,patent_continuation,continuation,4
+E007,P004,P005,patent_continuation,continuation,4
+E008,P001,P002,conceptual_influence,cryptographic pattern reuse,3
+E009,P001,P006,patent_family,published app,4
+E010,P002,P007,patent_family,PCT filing,4
+E011,P007,P008,patent_family,EP regional phase,4
+E012,N001,P009,conceptual_influence,capture-time provenance,3
+E013,N001,P010,conceptual_influence,content credential assertion,4
+E014,P001,P011,terminology_reuse,integrity assertion ledger,2
+E015,N001,P011,terminology_reuse,assertion graph pattern,3
+E016,P002,P012,terminology_reuse,provenance manifest + tamper-evident,2
+E017,P004,P013,terminology_reuse,fragile watermark AI content,3
+E018,N001,P013,terminology_reuse,authenticity signals for AI media,3
+E019,P002,P014,terminology_reuse,provenance manifest at capture,3
+E020,N002,P015,conceptual_origin,multi-stakeholder provenance,4
+E021,N001,P015,conceptual_origin,AMP and Project Origin co-development,5
+E022,P002,P016,terminology_reuse,manifest at chipset level,2
+E023,N001,P017,terminology_reuse,provenance chain for AI content,3
+E024,P002,P018,conceptual_influence,live provenance manifest to camera,3
+E025,N001,S001,standard_influence,AMP to C2PA formation,5
+E026,N002,S001,standard_influence,MIA to C2PA formation,5
+E027,P001,S001,standard_influence,integrity box to C2PA claim,4
+E028,P004,S001,standard_influence,watermark to C2PA soft binding,4
+E029,P015,S001,standard_influence,Project Origin to C2PA,4
+E030,P010,S001,standard_influence,Adobe CAI to C2PA founding,4
+E031,S001,S002,standard_evolution,spec evolution v1 to v2.3,5
+E032,P002,S002,standard_influence,live stream provenance to C2PA live video,5
+E033,S003,S001,standard_dependency,W3C VC to C2PA trust model,3
+E034,S004,S001,standard_dependency,JUMBF to C2PA manifest store,3
+E035,N001,S005,conceptual_origin,AMP is Project Origin technical core,5
+E036,S001,I001,implementation,Adobe adopts C2PA,4
+E037,S001,I002,implementation,Microsoft adopts C2PA,5
+E038,S002,I003,implementation,OpenAI C2PA for DALL-E,4
+E039,S001,I004,implementation,Google C2PA alignment,3
+E040,S001,I005,implementation,Sony hardware C2PA,4
+E041,S001,I006,implementation,Truepic C2PA platform,4
+E042,S002,I007,implementation,Meta Instagram C2PA,3
+E043,S001,I008,implementation,Leica C2PA camera,4
+E044,S005,I009,implementation,Project Origin to BBC Verify,4
+E045,S001,I010,implementation,CAI browser extension,4
+E046,P002,I005,conceptual_influence,live-stream manifest to camera key,3
+E047,P002,I008,conceptual_influence,manifest at capture to Leica,3
+E048,N001,I002,conceptual_influence,AMP to MS Designer productization,4
+E049,N001,I010,conceptual_influence,AMP browser icon to CAI UX,4
+E050,P013,I004,implementation,SynthID patent to product,4
+E051,P019,N002,conceptual_influence,mobile billing → content auth pipeline (pre-AMP),2
+E052,P020,P001,conceptual_influence,multi-DRM experience → cryptographic validation,3
+E053,P020,N002,conceptual_influence,DRM content protection → MIA integrity model,3
+E054,N002,P021,conceptual_influence,media pipeline security → VDI pipeline security,2
+E055,P001,P022,patent_family,US → PCT international filing,4
+E056,P022,S001,standard_influence,PCT prior art → C2PA claim architecture,3
+E057,P022,P006,patent_family,PCT family member,3
+E058,P019,P020,conceptual_influence,carrier billing model → DRM content payment,2
+E059,P021,P023,patent_family,PCT filing for VDI security,4
+E060,P023,P024,patent_family,EP regional phase,4
+E061,P020,P025,terminology_reuse,cross-DRM key brokering vocabulary,3
+E062,P020,P026,terminology_reuse,heterogeneous DRM license acquisition,3
+E063,P020,P027,terminology_reuse,multi-CDM DRM bridge architecture,3
+E064,P001,P025,terminology_reuse,cryptographic content key validation,2
+E065,P001,P027,terminology_reuse,crypto key enforcement across DRM systems,2
+E066,P021,P028,terminology_reuse,secured display pipeline vocabulary,3
+E067,P021,P029,terminology_reuse,encrypted input pipeline and exfiltration prevention,3
+E068,P021,P030,terminology_reuse,GPU cryptographic element secure video pipeline,3
+E069,N002,P028,terminology_reuse,media pipeline integrity → secure display pipeline,2
+E070,N002,P029,terminology_reuse,media input chain protection,2
+E071,P020,P021,conceptual_influence,DRM component architecture → VDI video decryption layer,3
+E072,P020,P030,terminology_reuse,hardware DRM decryption → GPU secure pipeline,2
+E073,P001,P031,forward_citation,cited by IBM entity cert mgmt,4
+E074,P001,P032,forward_citation,cited by IBM key rotation variant,4
+E075,P001,P033,forward_citation,cited by Qualcomm fast signing SoC,4
+E076,P001,P034,forward_citation,cited by CTM deepfake detection,4
+E077,P001,P038,forward_citation,cited by CN hash chain integrity,3
+E078,P002,P035,forward_citation,cited by NVIDIA staggered auth,4
+E079,P002,P036,forward_citation,cited by Fraunhofer verification chain,4
+E080,P002,P037,conceptual_influence,terminology and architecture parallel,3
+E081,N001,P034,terminology_reuse,tamper-evident media chain concept,3
+E082,N002,P034,conceptual_influence,MIA integrity assertion in AI deepfake context,3
+E083,P021,P035,conceptual_influence,VDI secured pipeline to GPU streaming auth,2
+E084,N001,P039,terminology_reuse,provenance manifest at mobile capture,3
+E085,P002,P039,conceptual_influence,live-stream key to camera session key,3
+E086,N001,P040,terminology_reuse,provenance manifest at Nikon capture,3
+E087,P002,P040,conceptual_influence,ephemeral session key for video provenance,3
+E088,N001,P041,terminology_reuse,assertion graph for AI output provenance,3
+E089,P017,P041,conceptual_influence,OpenAI to Anthropic AI provenance pattern,2
+E090,N001,P042,terminology_reuse,tamper-evident chain for human rights media,3
+E091,S001,P042,standard_influence,C2PA to human rights implementation,3
+E092,S001,S006,standard_influence,C2PA to MPEG AI content ID,4
+E093,N001,S006,conceptual_origin,AMP assertion graph as foundational prior art,4
+E094,S001,I011,implementation,YouTube adopts C2PA labels,4
+E095,P013,I011,conceptual_influence,SynthID to YouTube AI label UX,3
+E096,N001,I011,conceptual_influence,AMP authenticity signal UI to YouTube label,4
+E097,S001,I012,implementation,Nikon adopts C2PA hardware signing,4
+E098,P040,I012,implementation,Nikon prov. patent to Nikon camera product,3
+E099,S001,I013,implementation,TikTok reads C2PA credentials,3
+E100,I007,I013,conceptual_influence,Instagram to TikTok AI labeling pattern,2
+E101,N001,I013,conceptual_influence,AMP authenticity signal to TikTok UX,3
+E102,P034,S001,standard_influence,deepfake detection aligns to C2PA,3
+E103,P033,S001,conceptual_influence,Qualcomm SoC signs C2PA manifests,3
+E104,P036,S001,standard_influence,Fraunhofer verification chains use C2PA,3
