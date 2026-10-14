@@ -94,8 +94,8 @@
                 <li>Any timing constraints, if relevant</li>
               </ul>
 
-              <!-- Netlify success notice (shown after redirect or query param if desired) -->
-              <div style="display:none; background:#0D1117; border-left:3px solid #B08D57; padding:32px; color:#fff; margin-bottom:24px;" data-form-success>
+              <!-- Success notice: shown by the submit script below once Netlify accepts the message -->
+              <div style="display:none; background:#0D1117; border-left:3px solid #B08D57; padding:32px; color:#fff; margin-bottom:24px; outline:none;" data-form-success role="status" tabindex="-1">
                 <p style="font-size:18px;font-weight:600;margin:0 0 8px;">Message received.</p>
                 <p style="color:rgba(255,255,255,0.7);margin:0;">We'll be in touch within two business days.</p>
               </div>
@@ -230,6 +230,31 @@
     });
     document.getElementById('mobile-close-q7r8').addEventListener('click', function() {
       document.getElementById('mobile-menu-c3d4').classList.remove('open');
+    });
+    // Submit the Netlify form in the background and show the success notice
+    // in place; without fetch support the browser posts the form normally.
+    var contactForm = document.getElementById('contact-form');
+    var formSuccess = document.querySelector('[data-form-success]');
+    var submitBtn = document.getElementById('submit-btn-o1p2');
+    contactForm.addEventListener('submit', function(e) {
+      if (!window.fetch || !window.URLSearchParams || !window.FormData) return;
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(contactForm)).toString()
+      }).then(function(res) {
+        if (!res.ok) throw new Error('Form submission failed: ' + res.status);
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+        formSuccess.focus();
+      }).catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        contactForm.submit();
+      });
     });
   </script>
 </body>
