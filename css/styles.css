@@ -570,14 +570,6 @@
       font-size: 12px;
     }
 
-    /* Formspree field error spans */
-    .fs-field-error {
-      color: var(--color-accent-text);
-      font-size: 13px;
-      margin-top: 4px;
-      display: block;
-    }
-
     /* Contact right column email link */
     .contact-email-link {
       font-family: 'Inter', sans-serif;
