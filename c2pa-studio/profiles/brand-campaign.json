@@ -1,0 +1,80 @@
+{
+  "id": "brand-campaign",
+  "name": "Brand · Campaign asset",
+  "color": "#2E8B6F",
+  "tags": [
+    "marketing",
+    "custom-assertion"
+  ],
+  "description": "A composited marketing asset. Shows a vendor-specific custom assertion (com.vectorline.campaign) alongside standard metadata, with the agency signing as producer.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": true,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.producer"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2",
+        "com.vectorline.campaign"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{basename}}",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.created",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/composite"
+            },
+            {
+              "action": "c2pa.edited",
+              "description": "Retouching and layout"
+            },
+            {
+              "action": "c2pa.published",
+              "when": "{{now}}"
+            }
+          ]
+        }
+      },
+      {
+        "label": "com.vectorline.campaign",
+        "data": {
+          "campaign_id": "FALL-{{year}}-042",
+          "brand": "Example Outdoor Co.",
+          "agency": "Example Agency",
+          "approved_by": "Brand Standards",
+          "usage_window": {
+            "start": "{{date}}",
+            "end": "{{year}}-12-31"
+          }
+        }
+      },
+      {
+        "label": "cawg.metadata",
+        "data": {
+          "@context": {
+            "dc": "http://purl.org/dc/elements/1.1/"
+          },
+          "dc:creator": [
+            "Example Agency"
+          ],
+          "dc:title": "{{basename}}"
+        }
+      }
+    ]
+  }
+}

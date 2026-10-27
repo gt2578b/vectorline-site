@@ -1,0 +1,86 @@
+{
+  "id": "creator-rights",
+  "name": "Independent creator · Rights reserved",
+  "color": "#B08D57",
+  "tags": [
+    "art",
+    "rights",
+    "cawg"
+  ],
+  "description": "Digital artwork with a strong rights statement: generative training and data mining are not allowed, inference is constrained, and the artist's CAWG identity covers both the metadata and the training/mining choices.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": true,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.creator"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2",
+        "cawg.metadata",
+        "cawg.training-mining"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{basename}}",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.created",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCreation",
+              "when": "{{now}}"
+            }
+          ]
+        }
+      },
+      {
+        "label": "cawg.metadata",
+        "data": {
+          "@context": {
+            "dc": "http://purl.org/dc/elements/1.1/",
+            "xmpRights": "http://ns.adobe.com/xap/1.0/rights/"
+          },
+          "dc:creator": [
+            "Riley Sample"
+          ],
+          "dc:title": "{{basename}}",
+          "dc:rights": "© {{year}} Riley Sample",
+          "xmpRights:UsageTerms": "Personal viewing only. Contact the artist for licensing.",
+          "xmpRights:Marked": true
+        }
+      },
+      {
+        "label": "cawg.training-mining",
+        "data": {
+          "entries": {
+            "cawg.ai_generative_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_inference": {
+              "use": "constrained",
+              "constraint_info": "Allowed for accessibility descriptions (alt text) only."
+            },
+            "cawg.data_mining": {
+              "use": "notAllowed"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

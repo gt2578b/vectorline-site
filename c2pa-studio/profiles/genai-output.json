@@ -1,0 +1,62 @@
+{
+  "id": "genai-output",
+  "name": "Generative AI · Text-to-image",
+  "color": "#7A4FB0",
+  "tags": [
+    "ai",
+    "synthetic"
+  ],
+  "description": "Output from a (fictional) image model: trainedAlgorithmicMedia source type with the model recorded as the softwareAgent. No human identity assertion — the service signs as itself.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": false,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.creator"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2",
+        "cawg.metadata"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{filename}}",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.created",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+              "softwareAgent": {
+                "name": "Example Diffusion",
+                "version": "3.1"
+              },
+              "description": "Generated from a text prompt",
+              "when": "{{now}}"
+            }
+          ]
+        }
+      },
+      {
+        "label": "com.vectorline.genai",
+        "data": {
+          "model": "example-diffusion-3.1",
+          "prompt_disclosed": false,
+          "safety_filter": "standard",
+          "seed_recorded": true
+        }
+      }
+    ]
+  }
+}

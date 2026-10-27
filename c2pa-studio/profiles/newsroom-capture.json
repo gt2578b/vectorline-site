@@ -1,0 +1,90 @@
+{
+  "id": "newsroom-capture",
+  "name": "Newsroom · In-camera capture",
+  "color": "#2F6FB0",
+  "tags": [
+    "news",
+    "capture",
+    "cawg"
+  ],
+  "description": "A photojournalist's original capture: digitalCapture source type, IPTC-style caption metadata, AI use reserved, and a CAWG identity assertion binding the photographer to the metadata.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": true,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.creator"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2",
+        "cawg.metadata"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{filename}}",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.created",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+              "when": "{{now}}"
+            }
+          ]
+        }
+      },
+      {
+        "label": "cawg.metadata",
+        "data": {
+          "@context": {
+            "dc": "http://purl.org/dc/elements/1.1/",
+            "photoshop": "http://ns.adobe.com/photoshop/1.0/",
+            "Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
+            "xmpRights": "http://ns.adobe.com/xap/1.0/rights/"
+          },
+          "dc:creator": [
+            "Jordan Example"
+          ],
+          "dc:title": "{{basename}}",
+          "dc:description": "Crowds gather on the waterfront for the annual lantern festival.",
+          "photoshop:Credit": "Jordan Example / Example Wire",
+          "photoshop:DateCreated": "{{date}}",
+          "photoshop:City": "Seattle",
+          "Iptc4xmpCore:CountryCode": "US",
+          "dc:rights": "© {{year}} Example Wire. All rights reserved.",
+          "xmpRights:WebStatement": "https://example.com/licensing"
+        }
+      },
+      {
+        "label": "cawg.training-mining",
+        "data": {
+          "entries": {
+            "cawg.ai_generative_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_inference": {
+              "use": "allowed"
+            },
+            "cawg.data_mining": {
+              "use": "notAllowed"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

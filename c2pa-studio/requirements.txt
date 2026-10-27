@@ -1,0 +1,4 @@
+c2pa-python>=0.38,<0.39
+cryptography>=43
+flask>=3.0
+pillow>=10

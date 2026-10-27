@@ -1,0 +1,63 @@
+{
+  "id": "ai-assisted-edit",
+  "name": "AI-assisted edit · Generative fill",
+  "color": "#A0558F",
+  "tags": [
+    "ai",
+    "edit",
+    "ingredients"
+  ],
+  "description": "A human edit that used a generative fill tool on part of the image. The edit action carries the compositeWithTrainedAlgorithmicMedia source type. Attach the original as a parentOf ingredient (id \"parent\").",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": true,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.editor"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{basename}} (AI-assisted)",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.opened",
+              "parameters": {
+                "ingredientIds": [
+                  "parent"
+                ]
+              }
+            },
+            {
+              "action": "c2pa.edited",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
+              "softwareAgent": {
+                "name": "Example Editor Generative Fill",
+                "version": "2.0"
+              },
+              "description": "Extended background with generative fill"
+            },
+            {
+              "action": "c2pa.resized"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

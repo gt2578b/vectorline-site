@@ -1,0 +1,82 @@
+{
+  "id": "newsroom-edit",
+  "name": "Newsroom · Desk edit",
+  "color": "#1F4E7A",
+  "tags": [
+    "news",
+    "edit",
+    "ingredients"
+  ],
+  "description": "A photo desk edit of a signed original. Attach the original as a parentOf ingredient (id \"parent\") when signing; the opened action links to it. The editor's CAWG identity covers the edit actions.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": true,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.editor"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{basename}} (edited)",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.opened",
+              "parameters": {
+                "ingredientIds": [
+                  "parent"
+                ]
+              }
+            },
+            {
+              "action": "c2pa.cropped",
+              "description": "Cropped for 3:2 front-page layout"
+            },
+            {
+              "action": "c2pa.color_adjustments",
+              "description": "Exposure and white balance"
+            },
+            {
+              "action": "c2pa.published",
+              "when": "{{now}}"
+            }
+          ]
+        }
+      },
+      {
+        "label": "cawg.training-mining",
+        "data": {
+          "entries": {
+            "cawg.ai_generative_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_training": {
+              "use": "notAllowed"
+            },
+            "cawg.ai_inference": {
+              "use": "allowed"
+            },
+            "cawg.data_mining": {
+              "use": "notAllowed"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "minimal-baseline",
+  "name": "Minimal baseline",
+  "color": "#636A76",
+  "tags": [
+    "baseline"
+  ],
+  "description": "The smallest useful manifest: one created action with a source type. Use it as a control when comparing how validators display richer profiles.",
+  "signing": {
+    "certSet": "vectorline-c2pa",
+    "tsaUrl": "",
+    "cawg": {
+      "enabled": false,
+      "certSet": "vectorline-cawg",
+      "roles": [
+        "cawg.creator"
+      ],
+      "referencedAssertions": [
+        "c2pa.actions.v2",
+        "cawg.metadata"
+      ]
+    }
+  },
+  "manifest": {
+    "claim_generator_info": [
+      {
+        "name": "Vectorline C2PA Studio",
+        "version": "0.1.0"
+      }
+    ],
+    "title": "{{filename}}",
+    "assertions": [
+      {
+        "label": "c2pa.actions.v2",
+        "data": {
+          "actions": [
+            {
+              "action": "c2pa.created",
+              "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCreation"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
